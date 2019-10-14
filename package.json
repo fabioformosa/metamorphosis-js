@@ -1,0 +1,31 @@
+{
+  "name": "metamorphosis",
+  "version": "1.0.0",
+  "description": "conversion utils",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabioformosa/metamorphosis-typescript.git"
+  },
+  "keywords": [
+    "typescript",
+    "conversion"
+  ],
+  "author": "Fabio Formosa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fabioformosa/metamorphosis-typescript/issues"
+  },
+  "homepage": "https://github.com/fabioformosa/metamorphosis-typescript#readme",
+  "dependencies": {
+    "@types/jest": "^24.0.18",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^3.6.4"
+  }
+}
