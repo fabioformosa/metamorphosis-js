@@ -1,6 +1,6 @@
 import Manufacturer  from "./manufacturer";
 
-export default class car {
+export default class Car {
 
   model: string;
   color: string;

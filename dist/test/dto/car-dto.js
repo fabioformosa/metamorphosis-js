@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-class carDto {
+class CarDto {
 }
-exports.default = carDto;
+exports.default = CarDto;
 //# sourceMappingURL=car-dto.js.map

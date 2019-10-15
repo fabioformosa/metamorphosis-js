@@ -1,4 +1,4 @@
-export default class manufacturer {
+export default class Manufacturer {
   name: string;
   country: string;
 

@@ -1,6 +1,6 @@
 {
   "name": "@fabio.formosa/metamorphosis",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "conversion utils",
   "main": "dist/src/index.js",
   "scripts": {
