@@ -1,2 +1,3 @@
-import ConversionService  from "./service/conversion-service";
-export default ConversionService;
+export * from "./service/conversion-service";
+export  * from "./model/converter";
+export { Converter } from "./decorators/converter-decorator"
