@@ -26,26 +26,16 @@ class ConverterRegistry{
 };
 
 const converterDecorator = (sourceClass: { new(...args: any): any }, targetClass: { new(...args: any): any }) => {
-  return function(converterConstructor : Function){
-    console.log(`Found converter ${converterConstructor.name} for ${sourceClass.name} to ${targetClass.name}`);
-    const originalConstructor = converterConstructor;
-
-    function callConstructorWithArgs(constructor: Function, args: any) {
-        const c: any = function () {
-            return constructor.apply(this, args);
-        }
-        c.prototype = constructor.prototype;
-        return new c();
-    }
+  return function<T extends {new(...args:any[]):{}}>(ConverterConstructor : T){
+    console.log(`Found converter ${ConverterConstructor.name} for ${sourceClass.name} to ${targetClass.name}`);
 
     const wrappedConverterConstructor: any = function (...args: any) {
-        console.log(`New: ${originalConstructor['name']} is created`);
-        let converterInstance = callConstructorWithArgs(originalConstructor, args);
-        converterRegistry.register(converterInstance, sourceClass, targetClass);
+        console.log(`New: ${ConverterConstructor['name']} is created`);
+        let converterInstance = new ConverterConstructor(args);
+        converterRegistry.register( <IConverter<{ new(...args: any): any}, { new(...args: any): any }>> converterInstance, sourceClass, targetClass);
         return converterInstance;
     }
-
-    wrappedConverterConstructor.prototype = originalConstructor.prototype;
+    wrappedConverterConstructor.prototype = ConverterConstructor.prototype;
 
     return wrappedConverterConstructor;
   };
