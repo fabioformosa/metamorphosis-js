@@ -18,8 +18,6 @@ describe('Test CarToCarDtoConverter', () => {
     expect(carDto.color).toBe('red');
     expect(carDto.model).toBe('purosangue');
     expect(carDto.manufacturerName).toBe('Ferrari');
-    
-
   });
   
 });
