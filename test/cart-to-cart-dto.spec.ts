@@ -22,16 +22,4 @@ describe('Test CarToCarDtoConverter', () => {
 
   });
   
-  // it('test converter', ()=> {
-  //   const ferrari = new Manufacturer('Ferrari', 'Italy');
-  //   const car = new Car('purosangue', 'red', ferrari);
-
-  //   const carDto: CarDto = carToCarDtoConverter.convert(car);
-
-  //   expect(carDto.color).toBe('red');
-  //   expect(carDto.model).toBe('purosangue');
-  //   expect(carDto.manufacturerName).toBe('Ferrari');
-    
-
-  // });
 });
