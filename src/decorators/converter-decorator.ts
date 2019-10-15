@@ -1,5 +1,6 @@
 import IConverter from '../converter';
 
+
 class ConverterDescriptor{
   converter:  IConverter<{ new(...args: any): any }, { new(...args: any): any }>;
   sourceClass: { new(): any };
@@ -31,7 +32,7 @@ const converterDecorator = (sourceClass: { new(...args: any): any }, targetClass
 
     const wrappedConverterConstructor: any = function (...args: any) {
         console.log(`New: ${ConverterConstructor['name']} is created`);
-        let converterInstance = new ConverterConstructor(args);
+        let converterInstance = new ConverterConstructor(...args);
         converterRegistry.register( <IConverter<{ new(...args: any): any}, { new(...args: any): any }>> converterInstance, sourceClass, targetClass);
         return converterInstance;
     }
