@@ -1,11 +1,11 @@
-import IConverter from "./converter";
+import Converter from "./converter";
 
 export default class ConverterDescriptor{
-  converter:  IConverter<{ new(...args: any): any }, { new(...args: any): any }>;
+  converter:  Converter<{ new(...args: any): any }, { new(...args: any): any }>;
   sourceClass: { new(): any };
   targetClass : { new(): any };
 
-  constructor(converter: IConverter<{ new(...args: any): any}, { new(...args: any): any }>, sourceClass: { new(...args: any): any }, targetClass: { new(...args: any): any}){
+  constructor(converter: Converter<{ new(...args: any): any}, { new(...args: any): any }>, sourceClass: { new(...args: any): any }, targetClass: { new(...args: any): any}){
     this.converter = converter;
     this.sourceClass = sourceClass;
     this.targetClass = targetClass;

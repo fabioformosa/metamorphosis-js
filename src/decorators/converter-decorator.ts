@@ -1,4 +1,4 @@
-import IConverter from '../model/converter';
+import Converter from '../model/converter';
 import ConverterRegistry from '../model/converter-registry';
 
 const converterDecorator = (sourceClass: { new(...args: any): any }, targetClass: { new(...args: any): any }) => {
@@ -8,7 +8,7 @@ const converterDecorator = (sourceClass: { new(...args: any): any }, targetClass
     const wrappedConverterConstructor: any = function (...args: any) {
         // console.log(`New: ${ConverterConstructor['name']} is created`);
         let converterInstance = new ConverterConstructor(...args);
-        converterRegistry.register( <IConverter<{ new(...args: any): any}, { new(...args: any): any }>> converterInstance, sourceClass, targetClass);
+        converterRegistry.register( <Converter<{ new(...args: any): any}, { new(...args: any): any }>> converterInstance, sourceClass, targetClass);
         return converterInstance;
     }
     wrappedConverterConstructor.prototype = ConverterConstructor.prototype;
@@ -21,4 +21,4 @@ const converterDecorator = (sourceClass: { new(...args: any): any }, targetClass
 const converterRegistry = new ConverterRegistry();
 export { converterRegistry };
 
-export { converterDecorator as Converter };
+export { converterDecorator as Convert };
