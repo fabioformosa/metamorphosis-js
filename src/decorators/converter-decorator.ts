@@ -1,4 +1,4 @@
-import Converter from '../model/converter';
+import { Converter } from '../model/converter';
 import ConverterRegistry from '../model/converter-registry';
 
 const converterDecorator = (sourceClass: { new(...args: any): any }, targetClass: { new(...args: any): any }) => {

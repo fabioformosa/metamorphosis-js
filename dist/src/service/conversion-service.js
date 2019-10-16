@@ -9,5 +9,5 @@ class ConversionService {
         return converter.convert(sourceObj);
     }
 }
-exports.default = ConversionService;
+exports.ConversionService = ConversionService;
 //# sourceMappingURL=conversion-service.js.map

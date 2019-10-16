@@ -1,4 +1,4 @@
-import Converter from "../../src/model/converter";
+import { Converter} from "../../src/model/converter";
 import { Convert } from "../../src/decorators/converter-decorator";
 import Car from "../model/car";
 import CarDto from "../dto/car-dto2";

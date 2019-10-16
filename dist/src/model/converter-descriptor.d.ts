@@ -1,6 +1,6 @@
-import IConverter from "./converter";
+import { Converter } from "./converter";
 export default class ConverterDescriptor {
-    converter: IConverter<{
+    converter: Converter<{
         new (...args: any): any;
     }, {
         new (...args: any): any;
@@ -11,7 +11,7 @@ export default class ConverterDescriptor {
     targetClass: {
         new (): any;
     };
-    constructor(converter: IConverter<{
+    constructor(converter: Converter<{
         new (...args: any): any;
     }, {
         new (...args: any): any;

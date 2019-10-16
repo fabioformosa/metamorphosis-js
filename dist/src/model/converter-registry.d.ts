@@ -1,7 +1,7 @@
-import IConverter from "./converter";
+import { Converter } from "./converter";
 export default class ConverterRegistry {
     private _converters;
-    register(converter: IConverter<{
+    register(converter: Converter<{
         new (...args: any): any;
     }, {
         new (...args: any): any;
@@ -14,7 +14,7 @@ export default class ConverterRegistry {
         new (...args: any): any;
     }, target: {
         new (...args: any): any;
-    }): IConverter<{
+    }): Converter<{
         new (...args: any): any;
     }, {
         new (...args: any): any;

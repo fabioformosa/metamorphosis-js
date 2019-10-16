@@ -8,18 +8,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 const converter_decorator_1 = require("../../src/decorators/converter-decorator");
 const car_1 = require("../model/car");
-const car_dto_1 = require("../dto/car-dto");
-let CarToCarDtoConverter = class CarToCarDtoConverter {
+const car_dto2_1 = require("../dto/car-dto2");
+let CarToCarDto2Converter = class CarToCarDto2Converter {
     convert(source) {
-        const target = new car_dto_1.default();
-        target.color = source.color;
+        const target = new car_dto2_1.default();
         target.model = source.model;
+        target.isRed = source.color === 'red';
         target.manufacturerName = source.manufacturer.name;
         return target;
     }
 };
-CarToCarDtoConverter = __decorate([
-    converter_decorator_1.Convert(car_1.default, car_dto_1.default)
-], CarToCarDtoConverter);
-exports.default = CarToCarDtoConverter;
-//# sourceMappingURL=car-to-cart-dto.converter.js.map
+CarToCarDto2Converter = __decorate([
+    converter_decorator_1.Convert(car_1.default, car_dto2_1.default)
+], CarToCarDto2Converter);
+exports.default = CarToCarDto2Converter;
+//# sourceMappingURL=car-to-cart-dto2.converter.js.map

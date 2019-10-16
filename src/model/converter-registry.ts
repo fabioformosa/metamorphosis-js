@@ -1,5 +1,5 @@
 import ConverterDescriptor from "./converter-descriptor";
-import Converter from "./converter";
+import {Converter} from "./converter";
 
 export default class ConverterRegistry{
   private _converters = new Array<ConverterDescriptor>();

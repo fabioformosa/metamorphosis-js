@@ -1,4 +1,4 @@
-import Converter from "./converter";
+import { Converter } from "./converter";
 
 export default class ConverterDescriptor{
   converter:  Converter<{ new(...args: any): any }, { new(...args: any): any }>;

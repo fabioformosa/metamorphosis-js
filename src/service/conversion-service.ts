@@ -1,6 +1,6 @@
 import {converterRegistry} from '../decorators/converter-decorator';
 
-export default class ConversionService {
+export class ConversionService {
 
   convert(sourceObj: any, targetClass:{ new(...args: any): any }): any{
     const converter = converterRegistry.getConverter(sourceObj.constructor, targetClass);

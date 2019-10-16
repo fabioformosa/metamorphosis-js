@@ -14,7 +14,7 @@ const converterDecorator = (sourceClass, targetClass) => {
         return wrappedConverterConstructor;
     };
 };
-exports.Converter = converterDecorator;
+exports.Convert = converterDecorator;
 const converterRegistry = new converter_registry_1.default();
 exports.converterRegistry = converterRegistry;
 //# sourceMappingURL=converter-decorator.js.map
