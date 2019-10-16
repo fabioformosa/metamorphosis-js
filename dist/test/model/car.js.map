@@ -1,1 +1,0 @@
-{"version":3,"file":"car.js","sourceRoot":"","sources":["../../../test/model/car.ts"],"names":[],"mappings":";;AAEA,MAAqB,GAAG;IAMtB,YAAY,KAAa,EAAE,KAAa,EAAE,YAA0B;QAClE,IAAI,CAAC,KAAK,GAAG,KAAK,CAAC;QACnB,IAAI,CAAC,KAAK,GAAG,KAAK,CAAC;QACnB,IAAI,CAAC,YAAY,GAAG,YAAY,CAAA;IAClC,CAAC;CACF;AAXD,sBAWC"}
