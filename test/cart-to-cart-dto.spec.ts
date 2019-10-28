@@ -6,8 +6,8 @@ import { ConversionService } from "src/service/conversion-service";
 
 describe('Test CarToCarDtoConverter', () => {
 
-  let carToCarDtoConverter: CarToCarDtoConverter = new CarToCarDtoConverter();
   let conversionService: ConversionService = new ConversionService();
+  let carToCarDtoConverter: CarToCarDtoConverter = new CarToCarDtoConverter();
 
   it('test converter with conversion service', ()=> {
     const ferrari = new Manufacturer('Ferrari', 'Italy');

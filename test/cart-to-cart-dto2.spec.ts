@@ -5,11 +5,11 @@ import CarDto from "./dto/car-dto2";
 import Manufacturer from "./model/manufacturer";
 import { ConversionService } from "src/service/conversion-service";
 
-describe('Test CarToCarDtoConverter', () => {
+describe('Test CarToCarDtoConverter2', () => {
 
+  let conversionService: ConversionService = new ConversionService({debugMode: true});
   let carToCarDtoConverter: CarToCarDtoConverter = new CarToCarDtoConverter();
   let carToCarDto2Converter: CarToCarDto2Converter = new CarToCarDto2Converter();
-  let conversionService: ConversionService = new ConversionService();
 
   it('test converter with dto with same name', ()=> {
     const ferrari = new Manufacturer('Ferrari', 'Italy');

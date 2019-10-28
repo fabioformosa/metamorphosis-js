@@ -1,6 +1,12 @@
 import {converterRegistry} from '../decorators/converter-decorator';
+import { debug, logger } from 'src/consts/log';
 
 export class ConversionService {
+
+  constructor({debugMode} : { debugMode: boolean} = {debugMode: false}){
+      debug.enable = debugMode;
+      logger.log(`Set debugMode ${JSON.stringify(debug)}`);
+  }
 
   convert(sourceObj: any, targetClass: NewableFunction): any{
     const converter = converterRegistry.getConverter(sourceObj.constructor, targetClass);
