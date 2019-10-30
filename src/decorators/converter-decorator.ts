@@ -1,6 +1,6 @@
 import { Converter } from '../model/converter';
 import ConverterRegistry from '../model/converter-registry';
-import { logger } from 'src/consts/log';
+import { logger } from '../consts/log';
 
 const converterDecorator = (sourceClass: NewableFunction, targetClass: NewableFunction) => {
   return function<T extends {new(...args:any[]):{}}>(ConverterConstructor : T){
