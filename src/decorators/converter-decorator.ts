@@ -4,13 +4,13 @@ import { logger } from '../consts/log';
 
 const converterDecorator = (sourceClass: NewableFunction, targetClass: NewableFunction) => {
   return function<T extends {new(...args:any[]):{}}>(ConverterConstructor : T){
-    logger.log(`Found converter ${ConverterConstructor.name} for ${sourceClass.name} to ${targetClass.name}`);
+    logger.log(`METAMORPHOSIS - Found converter ${ConverterConstructor.name} for ${sourceClass.name} to ${targetClass.name}`);
 
     return class extends ConverterConstructor{
       constructor(...args: any[]){
         super(...args);
         converterRegistry.register( <Converter<NewableFunction, NewableFunction>> <unknown>this, sourceClass, targetClass);
-        logger.log(`Registered new converter ${ConverterConstructor.name} for ${sourceClass.name} to ${targetClass.name}`);
+        logger.log(`METAMORPHOSIS - Registered new converter ${ConverterConstructor.name} for ${sourceClass.name} to ${targetClass.name}`);
       }
     }
   };
