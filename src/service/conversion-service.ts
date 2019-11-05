@@ -1,11 +1,13 @@
 import {converterRegistry} from '../decorators/converter-decorator';
-import { debug, logger } from 'src/consts/log';
+import { debugOpts, logger as loggerObj } from 'src/consts/log';
 
 export class ConversionService {
 
-  constructor({debugMode} : { debugMode: boolean} = {debugMode: false}){
-      debug.enable = debugMode;
-      logger.log(`Set debugMode ${JSON.stringify(debug)}`);
+  constructor({logger} : { logger: boolean | ((msg: string) => void)} = {logger: false}){
+    debugOpts.enable = logger !== false;
+      if(debugOpts.enable && typeof logger === "function")
+      debugOpts.fn =  logger;
+      loggerObj.log(`Set debugOpts ${debugOpts.enable}`);
   }
 
   convert(sourceObj: any, targetClass: NewableFunction): any{

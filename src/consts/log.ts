@@ -1,14 +1,15 @@
-const debug = {
-    enable: false
+const debugOpts = {
+    enable: false,
+    fn: console.log
 }
 
 class Logger{
    public log(msg: string){
-        if(debug.enable)
-            console.log(msg);
+        if(debugOpts.enable)
+            debugOpts.fn(msg);
     }
 }
 const logger = new Logger();
 
-export { debug };
+export { debugOpts };
 export {logger};
