@@ -7,7 +7,7 @@ export class ConversionService {
     debugOpts.enable = logger !== false;
       if(debugOpts.enable && typeof logger === "function")
       debugOpts.fn =  logger;
-      loggerObj.log(`Set debugOpts ${debugOpts.enable}`);
+      loggerObj.log(`METAMORPHOSIS - Created conversion service with debugOpts ${debugOpts.enable}`);
   }
 
   convert(sourceObj: any, targetClass: NewableFunction): any{
