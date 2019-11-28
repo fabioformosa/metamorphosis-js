@@ -1,5 +1,5 @@
 import {converterRegistry} from '../decorators/converter-decorator';
-import { debugOpts, logger as loggerObj } from 'src/consts/log';
+import { debugOpts, logger as loggerObj } from '../consts/log';
 
 export class ConversionService {
 
