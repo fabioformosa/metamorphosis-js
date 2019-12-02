@@ -1,7 +1,7 @@
 import {converterRegistry} from '../decorators/converter-decorator';
 import { debug, logger } from '../consts/log';
 
-export class ConversionService {
+export class ConversionHelper {
 
   constructor({debugMode} : { debugMode: boolean} = {debugMode: false}){
       debug.enable = debugMode;
