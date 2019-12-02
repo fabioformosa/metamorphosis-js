@@ -7,7 +7,7 @@ import { ConversionHelper } from "src/service/conversion-helper";
 
 describe('Test CarToCarDtoConverter2', () => {
 
-  let conversionHelper: ConversionHelper = new ConversionHelper({debugMode: true});
+  let conversionHelper: ConversionHelper = new ConversionHelper({logger: true});
   let carToCarDtoConverter: CarToCarDtoConverter = new CarToCarDtoConverter();
   let carToCarDto2Converter: CarToCarDto2Converter = new CarToCarDto2Converter();
 
