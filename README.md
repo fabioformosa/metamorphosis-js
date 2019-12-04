@@ -19,10 +19,6 @@ It's imported also in [metamorphosis-nestjs](https://github.com/fabioformosa/met
 ### INSTALL
 `npm install --save @fabio.formosa/metamorphosis`
 
-### IMPORT MODULE
-
-TBD
-
 ### NEW CONVERTER
 
 Create a new converter class, implementing the interface `Converter<Source, Target>` and decorate the class with `@Convert`
@@ -43,7 +39,7 @@ export default class CarToCarDtoConverter implements Converter<Car, CarDto> {
 
 }
 ```
-### CREATE CONVERTER INSTANCES
+### CREATE CONVERTER INSTANCE
 
 ```
 const carToCarDtoConverter = new CarToCarDtoConverter();
