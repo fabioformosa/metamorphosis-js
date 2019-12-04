@@ -8,7 +8,8 @@
 
 **Metamorphosis** is set of libraries that provide utilities to convert objects from a class to another one. Tipically you'll have to convert entities to DTOs and/or viceversa.
 
-**Metamorphosis-js** is the NodeJs version of Metamorphosis library. It's imported also in [metamorphosis-nestjs](https://github.com/fabioformosa/metamorphosis-nestjs) to be used in project based on the popular framework [NestJS](https://nestjs.com).
+**Metamorphosis-js** is the typescript version of Metamorphosis library. 
+It's imported also in [metamorphosis-nestjs](https://github.com/fabioformosa/metamorphosis-nestjs) to be used in projects based on the popular framework [NestJS](https://nestjs.com).
 
 ![Chameleon - ph. George Lebada - pexels.com!](https://images.pexels.com/photos/754104/pexels-photo-754104.jpeg?auto=compress&cs=tinysrgb&h=325&w=470 " Chameleon - ph. Egor Kamelev - pexels.com")
 
@@ -29,7 +30,6 @@ Create a new converter class, implementing the interface `Converter<Source, Targ
 ```
 import { Convert, Converter } from '@fabio.formosa/metamorphosis';
 
-@Injectable()
 @Convert(Car, CarDto)
 export default class CarToCarDtoConverter implements Converter<Car, CarDto> {
   
@@ -43,10 +43,43 @@ export default class CarToCarDtoConverter implements Converter<Car, CarDto> {
 
 }
 ```
+### CREATE CONVERTER INSTANCES
 
-### USE CONVERSION SERVICE
-TBD
+```
+const carToCarDtoConverter = new CarToCarDtoConverter();
+```
+Since they are decorated with `@Converter`, converters register theyself in a conversion registry.
 
+### USE CONVERSION HELPER
+
+```
+import { ConversionHelper } from '@fabio.formosa/metamorphosis'
+...
+ConversionHelper conversionHelper = new ConversionHelper();
+const carDto = conversionHelper.convert(car, CarDto);
+```
+
+if source hasn't `Car` as constructor name, you can specify the source type, so:
+
+```
+const carDto = conversionHelper.convertBySource(car, Car, CarDto);
+```
+
+### DEBUG MODE
+
+Debug mode shows log in console by default:
+```
+import { ConversionHelper } from '@fabio.formosa/metamorphosis'
+...
+ConversionHelper conversionHelper = new ConversionHelper({logger: true});
+```
+
+or you can pass a custom log function:
+```
+import { ConversionHelper } from '@fabio.formosa/metamorphosis'
+...
+ConversionHelper conversionHelper = new ConversionHelper({logger: msg => console.log(msg) });
+```
 
 
 ## REQUIREMENTS
