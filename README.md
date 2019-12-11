@@ -61,6 +61,31 @@ if source hasn't `Car` as constructor name, you can specify the source type, so:
 const carDto = conversionHelper.convertBySource(car, Car, CarDto);
 ```
 
+### ASYNC CONVERSIONS
+
+If your converter must be async (_eg. it must retrieve entities from DB_):
+
+```
+@Injectable()
+@Convert(PlanetDto, Planet)
+export default class PlanetDtoToPlanet implements Converter<PlanetDto, Promise<Planet>> {
+  
+  async convert(source: PlanetDto): Promise<Planet> {
+   ...
+  }
+
+}
+```
+ * Define Planet as target type in `@Convert` 
+ * declare `Promise<Planet>` in `Converter interface`. 
+ * The convert method will be `async`.
+
+When you invoke conversionService you must apply `await` if you know for that conversion is returned a `Promise`.
+
+```
+const planet = await conversionHelper.convert(planetDto, Planet);
+```
+
 ### DEBUG MODE
 
 Debug mode shows log in console by default:
