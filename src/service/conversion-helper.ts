@@ -20,7 +20,7 @@ export class ConversionHelper {
   convertBySource(sourceObj: any, sourceClass: NewableFunction, targetClass: NewableFunction): any{
     const converter = converterRegistry.getConverter(sourceClass, targetClass);
     if(!converter)
-      throw new Error(`METAMORPHOSIS - Not found any converter to transform ${sourceClass.name} into ${targetClass.name}`);
+      throw new Error(`METAMORPHOSIS - Not found any converter to transform source ${sourceClass.name} into ${targetClass.name}`);
     return converter.convert(sourceObj);
   }
 
