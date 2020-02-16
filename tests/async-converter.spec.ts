@@ -1,4 +1,4 @@
-import { ConversionHelper } from "src/service/conversion-helper";
+import { ConversionHelper } from "../src/service/conversion-helper";
 import StudentDtoToStudentAsyncConverter from "./service/student-dto-to-student.async-converter";
 import Student from "./model/student";
 import StudentDto from "./dto/student-dto";

@@ -3,7 +3,7 @@ import CarToCarDto2Converter from "./service/car-to-cart-dto2.converter";
 import Car from "./model/car";
 import CarDto from "./dto/car-dto2";
 import Manufacturer from "./model/manufacturer";
-import { ConversionHelper } from "src/service/conversion-helper";
+import { ConversionHelper } from "../src/service/conversion-helper";
 
 describe('Test CarToCarDtoConverter2', () => {
 

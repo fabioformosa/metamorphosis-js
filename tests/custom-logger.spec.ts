@@ -2,7 +2,7 @@ import CarToCarDtoConverter from "./service/car-to-cart-dto.converter";
 import Car from "./model/car";
 import CarDto from "./dto/car-dto";
 import Manufacturer from "./model/manufacturer";
-import { ConversionHelper} from "src/service/conversion-helper";
+import { ConversionHelper} from "../src/service/conversion-helper";
 
 describe('Test CarToCarDtoConverter', () => {
   const mockLogger = jest.fn();
