@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/fabioformosa/metamorphosis-nestjs.svg?branch=master)](https://travis-ci.org/fabioformosa/metamorphosis-nestjs)
-[![Coverage Status](https://coveralls.io/repos/github/fabioformosa/metamorphosis-nestjs/badge.svg?branch=master)](https://coveralls.io/github/fabioformosa/metamorphosis-nestjs?branch=master)
+[![Build Status](https://travis-ci.org/fabioformosa/metamorphosis-js.svg?branch=master)](https://travis-ci.org/fabioformosa/metamorphosis-js)
+[![Coverage Status](https://coveralls.io/repos/github/fabioformosa/metamorphosis-js/badge.svg?branch=master)](https://coveralls.io/github/fabioformosa/metamorphosis-js?branch=master)
 
 # METAMORPHOSIS-JS
 
