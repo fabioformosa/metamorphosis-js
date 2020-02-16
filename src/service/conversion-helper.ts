@@ -10,18 +10,18 @@ export class ConversionHelper {
       loggerObj.log(`METAMORPHOSIS - Created conversion service with debugOpts ${debugOpts.enable}`);
   }
 
-  convert(sourceObj: any, targetClass: NewableFunction): any{
+  async convert(sourceObj: any, targetClass: NewableFunction): Promise<unknown>{
     const converter = converterRegistry.getConverter(sourceObj.constructor, targetClass);
     if(!converter)
       throw new Error(`METAMORPHOSIS - Not found any converter to transform ${sourceObj.constructor.name} into ${targetClass.name}`);
-    return converter.convert(sourceObj);
+    return await Promise.resolve(converter.convert(sourceObj));
   }
   
-  convertBySource(sourceObj: any, sourceClass: NewableFunction, targetClass: NewableFunction): any{
+  async convertBySource(sourceObj: any, sourceClass: NewableFunction, targetClass: NewableFunction): Promise<unknown>{
     const converter = converterRegistry.getConverter(sourceClass, targetClass);
     if(!converter)
       throw new Error(`METAMORPHOSIS - Not found any converter to transform source ${sourceClass.name} into ${targetClass.name}`);
-    return converter.convert(sourceObj);
+    return await Promise.resolve( converter.convert(sourceObj));
   }
 
 }

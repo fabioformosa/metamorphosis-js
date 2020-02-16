@@ -11,11 +11,11 @@ describe('Test CarToCarDtoConverter2', () => {
   let carToCarDtoConverter: CarToCarDtoConverter = new CarToCarDtoConverter();
   let carToCarDto2Converter: CarToCarDto2Converter = new CarToCarDto2Converter();
 
-  it('test converter with dto with same name', ()=> {
+  it('test converter with dto with same name', async ()=> {
     const ferrari = new Manufacturer('Ferrari', 'Italy');
     const car = new Car('purosangue', 'red', ferrari);
 
-    const carDto: CarDto = <CarDto>(conversionHelper.convert(car, CarDto));
+    const carDto: CarDto = <CarDto> await conversionHelper.convert(car, CarDto);
     expect(carDto.model).toBe('purosangue');
     expect(carDto.manufacturerName).toBe('Ferrari');
     expect(carDto.isRed).toBe(true);
