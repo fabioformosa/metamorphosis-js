@@ -1,5 +1,8 @@
 import {converterRegistry} from '../decorators/converter-decorator';
 import { debugOpts, logger as loggerObj } from '../consts/log';
+import { pluginRegistry } from "../model/plugin-registry";
+
+
 
 export class ConversionHelper {
 
@@ -11,13 +14,21 @@ export class ConversionHelper {
   }
 
   convert(sourceObj: any, targetClass: NewableFunction): any{
-    const converter = converterRegistry.getConverter(sourceObj.constructor, targetClass);
-    if(!converter)
-      throw new Error(`METAMORPHOSIS - Not found any converter to transform ${sourceObj.constructor.name} into ${targetClass.name}`);
-    return converter.convert(sourceObj);
+    if(pluginRegistry.shouldRearrangeSourceType(sourceObj, targetClass)){
+      const actualSourceType = pluginRegistry.rearrangeSourceType(sourceObj, targetClass);
+      loggerObj.log(`METAMORPHOSIS - Rearranged sourceType ${sourceObj.constructor} into ${actualSourceType}`);
+      return this.convertBySource(sourceObj, actualSourceType, targetClass);
+    }
+    else
+      return this._internalConvert(sourceObj, sourceObj.constructor, targetClass);
   }
   
   convertBySource(sourceObj: any, sourceClass: NewableFunction, targetClass: NewableFunction): any{
+    return this._internalConvert(sourceObj, sourceClass, targetClass);
+
+  }
+
+  private _internalConvert(sourceObj: any, sourceClass: NewableFunction, targetClass: NewableFunction){
     const converter = converterRegistry.getConverter(sourceClass, targetClass);
     if(!converter)
       throw new Error(`METAMORPHOSIS - Not found any converter to transform source ${sourceClass.name} into ${targetClass.name}`);
