@@ -11,8 +11,9 @@ export class ConversionHelper {
     debugOpts.enable = logger !== false;
     if(debugOpts.enable && typeof logger === "function")
       debugOpts.fn =  logger;
+    if(plugins)
+      plugins.forEach(pluginRegistry.register.bind(pluginRegistry));
     loggerObj.log(`METAMORPHOSIS - Created conversion service with debugOpts ${debugOpts.enable}`);
-    plugins.forEach(pluginRegistry.register);
   }
 
   convert(sourceObj: any, targetClass: NewableFunction): any{
