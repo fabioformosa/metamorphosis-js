@@ -4,10 +4,11 @@ module.exports = {
   transform: {
     '^.+\\.(t|j)s$': 'ts-jest',
   },
-  collectCoverageFrom: ['**/*.(t|j)s'],
-  coverageDirectory: '../coverage',
+  collectCoverageFrom: ['src/**/*.(t|j)s'],
+  collectCoverage: true,
+  coverageDirectory: './tests/coverage',
   testEnvironment: 'node',
   automock: true,
   unmockedModulePathPatterns: [],
-  moduleDirectories: ['node_modules', './'],
+  moduleDirectories: ['node_modules'],
 };

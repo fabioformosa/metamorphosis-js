@@ -16,7 +16,7 @@ export class ConversionHelper {
     loggerObj.log(`METAMORPHOSIS - Created conversion service with debugOpts ${debugOpts.enable}`);
   }
 
-  convert(sourceObj: any, targetClass: NewableFunction): any{
+  convert(sourceObj: any, targetClass: NewableFunction): Promise<unknown>{
     if(pluginRegistry.shouldRearrangeSourceType(sourceObj, targetClass)){
       const actualSourceType = pluginRegistry.rearrangeSourceType(sourceObj, targetClass);
       loggerObj.log(`METAMORPHOSIS - Rearranged sourceType ${sourceObj.constructor.name} into ${actualSourceType}`);
@@ -31,11 +31,11 @@ export class ConversionHelper {
 
   }
 
-  private _internalConvert(sourceObj: any, sourceClass: NewableFunction, targetClass: NewableFunction){
+  private async _internalConvert(sourceObj: any, sourceClass: NewableFunction, targetClass: NewableFunction) : Promise<unknown>{
     const converter = converterRegistry.getConverter(sourceClass, targetClass);
     if(!converter)
       throw new Error(`METAMORPHOSIS - Not found any converter to transform source ${sourceClass.name} into ${targetClass.name}`);
-    return converter.convert(sourceObj);
+    return await Promise.resolve( converter.convert(sourceObj));
   }
 
 }

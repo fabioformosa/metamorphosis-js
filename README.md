@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/fabioformosa/metamorphosis-nestjs.svg?branch=master)](https://travis-ci.org/fabioformosa/metamorphosis-nestjs)
-[![Coverage Status](https://coveralls.io/repos/github/fabioformosa/metamorphosis-nestjs/badge.svg?branch=master)](https://coveralls.io/github/fabioformosa/metamorphosis-nestjs?branch=master)
+[![Build Status](https://travis-ci.org/fabioformosa/metamorphosis-js.svg?branch=master)](https://travis-ci.org/fabioformosa/metamorphosis-js)
+[![Coverage Status](https://coveralls.io/repos/github/fabioformosa/metamorphosis-js/badge.svg?branch=master)](https://coveralls.io/github/fabioformosa/metamorphosis-js?branch=master)
 
 # METAMORPHOSIS-JS
 
@@ -52,13 +52,13 @@ Since they are decorated with `@Converter`, converters register theyself in a co
 import { ConversionHelper } from '@fabio.formosa/metamorphosis'
 ...
 ConversionHelper conversionHelper = new ConversionHelper();
-const carDto = conversionHelper.convert(car, CarDto);
+const carDto = <CarDto> await conversionHelper.convert(car, CarDto);
 ```
 
 if source hasn't `Car` as constructor name, you can specify the source type, so:
 
 ```
-const carDto = conversionHelper.convertBySource(car, Car, CarDto);
+const carDto = <CarDto> await conversionHelper.convertBySource(car, Car, CarDto);
 ```
 
 ### ASYNC CONVERSIONS
@@ -83,7 +83,7 @@ export default class PlanetDtoToPlanet implements Converter<PlanetDto, Promise<P
 When you invoke conversionService you must apply `await` if you know for that conversion is returned a `Promise`.
 
 ```
-const planet = await conversionHelper.convert(planetDto, Planet);
+const planet = <Planet> await conversionHelper.convert(planetDto, Planet);
 ```
 
 ### DEBUG MODE

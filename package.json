@@ -5,7 +5,9 @@
   "main": "dist/src/index.js",
   "scripts": {
     "test": "jest",
-    "build": "tsc"
+    "build": "tsc",
+    "test-travis": "jest --maxWorkers=2",
+    "coveralls": "jest --maxWorkers=2 --coverage && cat ./tests/coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,7 @@
     "@types/jest": "^24.0.18",
     "jest": "^24.9.0",
     "ts-jest": "^24.1.0",
-    "typescript": "^3.6.4"
+    "typescript": "^3.6.4",
+    "coveralls": "^3.0.7"
   }
 }
