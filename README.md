@@ -6,10 +6,7 @@
 > "Nothing is lost, nothing is created, everything is transformed"
 > _Lavoisier
 
-**Metamorphosis** is set of libraries that provide utilities to convert objects from a class to another one. Tipically you'll have to convert entities to DTOs and/or viceversa.
-
-**Metamorphosis-js** is the typescript version of Metamorphosis library. 
-It's imported also in [metamorphosis-nestjs](https://github.com/fabioformosa/metamorphosis-nestjs) to be used in projects based on the popular framework [NestJS](https://nestjs.com).
+**Metamorphosis-js** is the javascript/typescript version of [**Metamorphosis**](https://fabioformosa.github.io/metamorphosis), an utility library to ease conversions of objects, provided as java, javascript and NestJS as well.
 
 ![Chameleon - ph. George Lebada - pexels.com!](https://images.pexels.com/photos/754104/pexels-photo-754104.jpeg?auto=compress&cs=tinysrgb&h=325&w=470 " Chameleon - ph. Egor Kamelev - pexels.com")
 
