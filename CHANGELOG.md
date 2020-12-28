@@ -1,4 +1,4 @@
-## **v4.0.1** 
+## **v4.1.1** 
 
 Moved converterRegistry from converter-decorator.ts to converter-registry.ts and renamed it in converterRegistrySingleton.
 This is not a breaking change, because converterRegistry is supposed to be not used directly.
