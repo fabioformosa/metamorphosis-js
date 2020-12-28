@@ -13,3 +13,6 @@ export default class ConverterRegistry{
     return (foundConverterDescriptor && foundConverterDescriptor.converter) || null;
   }
 };
+
+const converterRegistrySingleton = new ConverterRegistry();
+export { converterRegistrySingleton };

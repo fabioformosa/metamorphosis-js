@@ -1,5 +1,5 @@
 import { Converter } from '../model/converter';
-import ConverterRegistry from '../model/converter-registry';
+import ConverterRegistry, {converterRegistrySingleton} from '../model/converter-registry';
 import { logger } from '../consts/log';
 
 const converterDecorator = (sourceClass: NewableFunction, targetClass: NewableFunction) => {
@@ -9,14 +9,11 @@ const converterDecorator = (sourceClass: NewableFunction, targetClass: NewableFu
     return class extends ConverterConstructor{
       constructor(...args: any[]){
         super(...args);
-        converterRegistry.register( <Converter<NewableFunction, NewableFunction>> <unknown>this, sourceClass, targetClass);
+        converterRegistrySingleton.register( <Converter<NewableFunction, NewableFunction>> <unknown>this, sourceClass, targetClass);
         logger.log(`METAMORPHOSIS - Registered new converter ${ConverterConstructor.name} for ${sourceClass.name} to ${targetClass.name}`);
       }
     }
   };
 }
-
-const converterRegistry = new ConverterRegistry();
-export { converterRegistry };
 
 export { converterDecorator as Convert };

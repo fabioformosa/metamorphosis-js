@@ -1,4 +1,4 @@
-import {converterRegistry} from '../decorators/converter-decorator';
+import {converterRegistrySingleton} from '../model/converter-registry';
 import { debugOpts, logger as loggerObj } from '../consts/log';
 import { pluginRegistry } from "../model/plugin-registry";
 import { MetamorphosisPlugin } from "../model/metamorphosis-plugin";
@@ -32,7 +32,7 @@ export class ConversionHelper {
   }
 
   private async _internalConvert(sourceObj: any, sourceClass: NewableFunction, targetClass: NewableFunction) : Promise<unknown>{
-    const converter = converterRegistry.getConverter(sourceClass, targetClass);
+    const converter = converterRegistrySingleton.getConverter(sourceClass, targetClass);
     if(!converter)
       throw new Error(`METAMORPHOSIS - Not found any converter to transform source ${sourceClass.name} into ${targetClass.name}`);
     return await Promise.resolve( converter.convert(sourceObj));
