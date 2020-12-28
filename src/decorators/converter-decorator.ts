@@ -1,5 +1,5 @@
 import { Converter } from '../model/converter';
-import ConverterRegistry, {converterRegistrySingleton} from '../model/converter-registry';
+import {converterRegistrySingleton} from '../model/converter-registry';
 import { logger } from '../consts/log';
 
 const converterDecorator = (sourceClass: NewableFunction, targetClass: NewableFunction) => {
