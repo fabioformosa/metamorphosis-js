@@ -1,4 +1,4 @@
-## **v4.1.3** 
+## **v4.1.4** 
 
 Fixed Converter Decorator to inherit the prototype of the original converter class
 
