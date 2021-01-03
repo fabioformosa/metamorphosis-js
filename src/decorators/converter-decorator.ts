@@ -14,22 +14,6 @@ const converterDecorator = (sourceClass: NewableFunction, targetClass: NewableFu
       }
     }
 
-    // const wrappedConstructor : any = function (...args:any[]) {
-    //   const wrappedObj =  new ConverterConstructor(...args);
-    //   converterRegistrySingleton.register( <Converter<NewableFunction, NewableFunction>> <unknown>wrappedObj, sourceClass, targetClass);
-    //   logger.log(`METAMORPHOSIS - Registered new converter ${ConverterConstructor.name} for ${sourceClass.name} to ${targetClass.name}`);
-    //   return wrappedObj;
-    // }
-
-    // return class extends ConverterConstructor{
-    //   constructor(...args: any[]){
-    //     super(...args);
-    //     converterRegistrySingleton.register( <Converter<NewableFunction, NewableFunction>> <unknown>this, sourceClass, targetClass);
-    //     logger.log(`METAMORPHOSIS - Registered new converter ${ConverterConstructor.name} for ${sourceClass.name} to ${targetClass.name}`);
-    //   }
-    // }
-
-    // wrappedConstructor.prototype = ConverterConstructor.prototype;
     Object.defineProperty(wrappedConstructor, 'name', {value: ConverterConstructor.name, writable: false});
     return wrappedConstructor;
   };
