@@ -7,13 +7,14 @@ const converterDecorator = (sourceClass: NewableFunction, targetClass: NewableFu
     logger.log(`METAMORPHOSIS - Found converter ${ConverterConstructor.name} for ${sourceClass.name} to ${targetClass.name}`);
 
     const wrappedConstructor : any = function (...args:any[]) {
-      const wrappedObj =  new ConverterConstructor(...args); // according the comments
+      const wrappedObj =  new ConverterConstructor(...args);
       converterRegistrySingleton.register( <Converter<NewableFunction, NewableFunction>> <unknown>wrappedObj, sourceClass, targetClass);
       logger.log(`METAMORPHOSIS - Registered new converter ${ConverterConstructor.name} for ${sourceClass.name} to ${targetClass.name}`);
       return wrappedObj;
     }
 
     wrappedConstructor.prototype = ConverterConstructor.prototype;
+    Object.defineProperty(wrappedConstructor, 'name', {value: ConverterConstructor.name, writable: false});
     return wrappedConstructor;
   };
 }
