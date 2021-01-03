@@ -1,3 +1,9 @@
+## **v4.1.2** 
+
+Fixed Converter Decorator to inherit the prototype of the original converter class
+
+---
+
 ## **v4.1.1** 
 
 Moved converterRegistry from converter-decorator.ts to converter-registry.ts and renamed it in converterRegistrySingleton.
